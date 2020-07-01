@@ -27,6 +27,6 @@
 <script>
 $('#a_join').click(function(e){
 	e.preventDefault()
-	location.href = `${context}/account/join`
+	location.href = `${context}/location/account/JoinForm`
 })
 </script>
