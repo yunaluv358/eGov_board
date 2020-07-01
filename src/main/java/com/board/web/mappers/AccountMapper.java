@@ -2,6 +2,7 @@ package com.board.web.mappers;
 
 import java.util.HashMap;
 
+
 import org.springframework.stereotype.Repository;
 
 import com.board.web.domains.Account;
@@ -15,5 +16,5 @@ public interface AccountMapper {
 	public void createDB(HashMap<String, String> paramMap);
 	public void createUser(HashMap<String, String> paramMap);
 	public void dropUser(HashMap<String, String> paramMap);
-	public void truncateUser(HashMap<String, String> paramMap);
+	public void truncateAccount(HashMap<String, String> paramMap);
 }

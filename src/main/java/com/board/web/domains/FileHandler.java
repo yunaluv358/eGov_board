@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Lazy
 @Data
-@Component
 @AllArgsConstructor
 @NoArgsConstructor
-public class Account{
-	private String userid,password,name,birthday,
-					gender,telephone, regdate, 
-					accessCode;
+@Component
+public class FileHandler {
+	private int fileNumber;
+	private String fileName;
 }

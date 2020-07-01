@@ -2,7 +2,7 @@ package com.board.web.enums;
 
 public enum Sql {
 	CREATE_DB, 
-	CREATE_PERSONS, DROP_PERSONS, TRUNCATE_PERSONS,
+	CREATE_ACCOUNTS, DROP_ACCOUNTS, TRUNCATE_ACCOUNTS,
 	CREATE_ARTICLES, DROP_ARTICLES, TRUNCATE_ARTICLES,
 	CREATE_IMAGES, DROP_IMAGES, TRUNCATE_IMAGES;
 	@Override
@@ -12,20 +12,20 @@ public enum Sql {
 		case CREATE_DB:
 			result = "create database mariadb";
 			break;
-		case CREATE_PERSONS:
-			result = "create table persons(userid varchar(30)primary key,"+ 
+		case CREATE_ACCOUNTS:
+			result = "create table accounts(userid varchar(30)primary key,"+ 
                     " password varchar(30) ," +
                     " name varchar(30) ," +
                     " birthday varchar(30) ," +
                     " gender varchar(10) ," +
                     " telephone varchar(30))ENGINE=InnoDB DEFAULT CHARSET=UTF8" ;
 			break;
-		case DROP_PERSONS:
-			result = "drop table persons";
+		case DROP_ACCOUNTS:
+			result = "drop table accounts";
 			break;
 		
-		case TRUNCATE_PERSONS:
-			result = "truncate table persons";
+		case TRUNCATE_ACCOUNTS:
+			result = "truncate table accounts";
 			break;
 		case TRUNCATE_ARTICLES :
 			result = "truncate table articles";
@@ -34,7 +34,7 @@ public enum Sql {
 	           result =  "create table articles("
 	                   + "artseq int auto_increment primary key,"
 	                   + "imageSeq int  references images,"
-	                   + "userid varchar(30)  references persons,"
+	                   + "userid varchar(30)  references accounts,"
 	                   + "comments varchar(500),"
 	                   + "message varchar(50),"
 	                   + "rating varchar(50), "

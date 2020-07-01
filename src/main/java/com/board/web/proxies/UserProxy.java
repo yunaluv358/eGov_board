@@ -1,5 +1,6 @@
 package com.board.web.proxies;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -7,7 +8,11 @@ import java.util.function.BiFunction;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.board.web.domains.Account;
+import com.board.web.enums.Sql;
+import com.board.web.mappers.AccountMapper;
 import com.board.web.mappers.TxMapper;
 
 
@@ -15,6 +20,8 @@ import com.board.web.mappers.TxMapper;
 @Component("manager") 
 public class UserProxy extends Proxy{
 	@Autowired TxMapper txMapper;
+	@Autowired Box<String> box;
+	@Autowired AccountMapper accountMapper;
 	
 	public String makeBirthday() {
 		String birthday = "";
@@ -75,6 +82,23 @@ public class UserProxy extends Proxy{
 		Collections.shuffle(name);
 		String fullname = fname.get(0) + name.get(0) + name.get(1);
 		return fullname;
+	}
+	
+	public Account makeUser() {
+		return new Account(makeUserid(), makeUsername(), "1", 
+				makeBirthday(), makeGender(), makeTelephone(), "2020", "" );
+	}
+	@Transactional
+	public void insertUsers(int count) {
+		for(int i = 0; i< count; i++) {
+			txMapper.insertUser(makeUser());
+		}
+	}
+	public void truncatePersons() {
+		box.clear();
+		box.put("TRUNCATE_ACCOUNTS", Sql.TRUNCATE_ACCOUNTS.toString());
+		accountMapper.truncateAccount(box.get());
+		
 	}
 
 }

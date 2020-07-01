@@ -3,10 +3,7 @@ package com.board.web.services;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
-
 import com.board.web.domains.Account;
-
-
 @Component
 public interface AccountService {
 	 public void save();
@@ -20,7 +17,7 @@ public interface AccountService {
 	 public void findByCreatedAtBetween(Date fromDate, Date toDate);
 	 public void findByAgeGraterThanEqual(int age);
 	 public void findByNameLike(String name);
-	 public void findByJobIsNull();
-	 public void findByJob(String jobs);
+	 public void findByAccessCodeIsNull();
+	 public void findByGenerLike(String gender);
 	 public void findByEmailOrderByNameAsc(String email);
 }
