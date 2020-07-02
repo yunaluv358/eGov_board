@@ -13,8 +13,8 @@ import com.board.web.mappers.AccountMapper;
 @Service
 public class AccountServiceImpl implements AccountService{
 	private static final Logger logger = LoggerFactory.getLogger(AccountServiceImpl.class);
-	@Autowired
-	AccountMapper accountMapper;
+	@Autowired AccountMapper accountMapper;
+	@Autowired Account account;
 	/* (non-Javadoc)
 	 * @see com.board.web.services.AccountService#save()
 	 */
@@ -64,12 +64,12 @@ public class AccountServiceImpl implements AccountService{
 		
 	}
 	/* (non-Javadoc)
-	 * @see com.board.web.services.AccountService#findByEmailAndUserId(java.lang.String, java.lang.String)
+	 * @see com.board.web.services.AccountService#findByUseridAndPassword(com.board.web.domains.Account)
 	 */
 	@Override
-	public void findByEmailAndUserId(String email, String userId) {
+	public Account findByUseridAndPassword(Account account) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 	/* (non-Javadoc)
 	 * @see com.board.web.services.AccountService#findByEmailOrUserId(java.lang.String, java.lang.String)
@@ -128,3 +128,7 @@ public class AccountServiceImpl implements AccountService{
 		
 	}
 }
+	/* (non-Javadoc)
+	 * @see com.board.web.services.AccountService#save()
+	 */
+	
